@@ -419,9 +419,6 @@ def clean_bci_data(bci_years: list[str], start_year: int, bci_scores: list) -> \
             bci_scores[i] = float(bci_scores[i])
 
 
-################################################################################
-# Provided function. Do not modify.
-################################################################################
 def clean_data(data: list[list], start_year: int) -> None:
     """Update data so that the applicable string values are converted to their
     appropriate type. In addition, update COLUMN_ID for each inner list so that
