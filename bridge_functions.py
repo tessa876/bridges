@@ -1,32 +1,9 @@
-"""CSC108: Fall 2023 -- Assignment 2: Bridges
 
-Instructions (READ THIS FIRST!)
-===============================
-
-Make sure that the files a2_checker.py, checker_generic.py, and the directory 
-called pyta, are in the same directory as this file.
-
-The data used for this assignment is a subset of the data found in:
-https://www.ontario.ca/data/bridge-conditions
-
-Copyright and Usage Information
-===============================
-
-This code is provided solely for the personal and private use of students
-taking the CSC108 course at the University of Toronto. Copying for purposes
-other than this use is expressly prohibited. All forms of distribution of
-this code, whether as given or with any changes, are expressly prohibited.
-
-All of the files in this directory and all subdirectories are:
-Copyright (c) 2023 Mario Badr, Tom Fairgrieve, Sadia Sharmin, and Jacqueline 
-Smith
-"""
 import csv
 import math
 
-################################################################################
-# Constants to use you in your code
-################################################################################
+# Constants to use you in code
+
 COLUMN_ID = 0
 COLUMN_NAME = 1
 COLUMN_HIGHWAY = 2
@@ -47,11 +24,6 @@ MISSING_BCI = -1.0
 
 EARTH_RADIUS = 6371
 
-################################################################################
-# Sample data for use in docstring examples
-################################################################################
-
-# These bridges that are the bridges from rows 3, 4, and 33 of the dataset.
 
 EXAMPLE_BRIDGES = \
     [[1, 'Highway 24 Underpass at Highway 403',
@@ -82,9 +54,6 @@ EXAMPLE_BRIDGES = \
      ]
 
 
-################################################################################
-# Helper function to use in your code later on. You do not need to change it.
-################################################################################
 def calculate_distance(lat1: float, lon1: float,
                        lat2: float, lon2: float) -> float:
     """Return the distance in kilometers between the two locations defined by
@@ -96,13 +65,6 @@ def calculate_distance(lat1: float, lon1: float,
     2713.226
     """
 
-    # This function uses the haversine function to find the
-    # distance between two locations. You do NOT need to understand why it
-    # works. You will just need to call on the function and work with what it
-    # returns.
-    # Based on code at goo.gl/JrPG4j
-
-    # convert decimal degrees to radians
     lon1, lat1, lon2, lat2 = (math.radians(lon1), math.radians(lat1),
                               math.radians(lon2), math.radians(lat2))
 
@@ -505,9 +467,6 @@ def clean_data(data: list[list], start_year: int) -> None:
         trim_from_end(row, len(row) - COLUMN_BCI - 1)
 
 
-################################################################################
-# Provided function. Do not modify. 
-################################################################################
 def read_data(filename: str) -> list[list]:
     """Return the data found in the file filename as a list of lists.
 
@@ -531,14 +490,11 @@ def read_data(filename: str) -> list[list]:
 
 
 if __name__ == '__main__':
-    # Uncomment these lines to automatically run all doctest examples
-    # You should expect to see lots of failures on functions you haven't written
+
     import doctest
 
     doctest.testmod()
 
-    # To test your code with the actual dataset, uncomment the code below
     bridges_small = read_data('bridge_data_small.csv')
 
-    # To test your code with the whole actual dataset, uncomment the code below
     bridges_large = read_data('bridge_data_large.csv')
